@@ -1,0 +1,16 @@
+<!--pages/ble/ble.wxml-->
+
+<view class="usermotto">
+  <button bindtap='searchBle' loading='{{searching}}'>{{searching? "搜索中~~":"搜索蓝牙"}}</button>
+  <button bindtap='bindcloseble'>关闭蓝牙</button>
+</view>
+<scroll-view scroll-y>
+  <block wx:for="{{devices_list}}">
+    <view id="{{item.deviceId}}" bindtap='ConnectTo'>
+      <view>名称：{{item.name}}</view>
+      <view>ID:{{item.deviceId}}</view>
+      <view>广播数据：{{item.advertisData}}</view>
+      <view>信号强度：{{item.RSSI}}</view>
+    </view>
+  </block>
+</scroll-view>
